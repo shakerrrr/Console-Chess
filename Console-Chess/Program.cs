@@ -6,7 +6,10 @@ namespace Console_Chess
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Board game = new Board();
+            game.CreatePieces();
+            game.UpdateDraw();
+            Console.ReadKey();
         }
     }
 }
