@@ -5,7 +5,7 @@ namespace Console_Chess
 {
     class Program
     {
-        static Board game = new Board();
+        static Board game;
         static void Main(string[] args)
         {
             mainMenu();
@@ -110,12 +110,29 @@ namespace Console_Chess
             Point origin = new Point(originX,originY);
             Point destination = new Point(destinationX, destinationY);
 
+            bool killed = false;
             foreach (Piece piece in game.pieces)
             {
                 if (piece.pos.Equals(origin))
                 {
-                    piece.moveTo(destination);
+                    if (piece.isValidPath(destination))
+                    {
+                        foreach(Piece piece2 in game.pieces)
+                        {
+                            if (piece2.pos.Equals(destination))
+                            {
+                                killed = true;
+                                game.outPiecses.Add(piece2);
+                            }
+                        }
+
+                        piece.moveTo(destination);
+                    }
                 }
+            }
+            if (killed)
+            {
+                game.pieces.Remove(game.outPiecses[game.outPiecses.Count - 1]);
             }
             runGame();
         }
@@ -128,6 +145,7 @@ namespace Console_Chess
             switch (Console.ReadLine())
             {
                 case "1":
+                    game = new Board();
                     game.CreatePieces();
                     runGame();
                     break;

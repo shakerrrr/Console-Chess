@@ -8,6 +8,7 @@ namespace Console_Chess
     class Board
     {
         public List<Piece> pieces = new List<Piece>();
+        public List<Piece> outPiecses = new List<Piece>();
 
         public void CreatePieces()
         {
