@@ -14,7 +14,7 @@ namespace Console_Chess
             this.type = PieceType.QUEEN;
         }
 
-        public override bool isValidPath(Point endPos)
+        public override bool isValidPath(Point endPos, List<Piece> pieces)
         {
             throw new NotImplementedException();
         }

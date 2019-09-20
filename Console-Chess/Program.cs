@@ -28,6 +28,7 @@ namespace Console_Chess
                     mainMenu();
                     break;
                 default:
+                    runGame();
                     break;
             }
         }
@@ -115,7 +116,7 @@ namespace Console_Chess
             {
                 if (piece.pos.Equals(origin))
                 {
-                    if (piece.isValidPath(destination))
+                    if (piece.isValidPath(destination, game.pieces))
                     {
                         foreach(Piece piece2 in game.pieces)
                         {
@@ -125,7 +126,6 @@ namespace Console_Chess
                                 game.outPiecses.Add(piece2);
                             }
                         }
-
                         piece.moveTo(destination);
                     }
                 }
