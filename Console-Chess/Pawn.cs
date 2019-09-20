@@ -60,6 +60,31 @@ namespace Console_Chess
                         return true;
                     }
                 }
+                if (this.pos.Y - 1 == endPos.Y && this.pos.X - 1 == endPos.X || this.pos.Y - 1 == endPos.Y && this.pos.X + 1 == endPos.X)
+                {
+                    foreach (Piece piece in pieces)
+                    {
+                        if (piece.pos.Equals(endPos))
+                        {
+                            return true;
+                        }
+                    }
+                }
+                if (this.pos.Y - 1 == endPos.Y && this.pos.X == endPos.X)
+                {
+                    bool occupied = false;
+                    foreach (Piece piece in pieces)
+                    {
+                        if (piece.pos.Equals(endPos))
+                        {
+                            occupied = true;
+                        }
+                    }
+                    if (!occupied)
+                    {
+                        return true;
+                    }
+                }
             }
 
             return false;
