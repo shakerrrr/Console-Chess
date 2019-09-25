@@ -16,7 +16,14 @@ namespace Console_Chess
 
         public override bool isValidPath(Point endPos, List<Piece> pieces)
         {
-            throw new NotImplementedException();
+            if (pos.X == endPos.X || pos.Y == endPos.Y)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
