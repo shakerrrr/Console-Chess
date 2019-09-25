@@ -33,78 +33,48 @@ namespace Console_Chess
             }
         }
 
+        static int getCorrespondingNumber(String ch)
+        {
+            if (ch.Equals("A", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return 1;
+            }
+            else if (ch.Equals("B", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return 2;
+            }
+            else if (ch.Equals("C", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return 3;
+            }
+            else if (ch.Equals("D", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return 4;
+            }
+            else if (ch.Equals("E", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return 5;
+            }
+            else if (ch.Equals("F", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return 6;
+            }
+            else if (ch.Equals("G", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return 7;
+            }
+            else
+            {
+                return 8;
+            }
+        }
+
         static void movePiece(string originString, string destinationString, Board game)
         {
-            int originX = 404;
-            int originY = 404;
-            int destinationX = 404;
-            int destinationY = 404;
-
-            if (originString.Substring(0, 1).Equals("A", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 1;
-            }
-            if (originString.Substring(0, 1).Equals("B", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 2;
-            }
-            if (originString.Substring(0, 1).Equals("C", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 3;
-            }
-            if (originString.Substring(0, 1).Equals("D", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 4;
-            }
-            if (originString.Substring(0, 1).Equals("E", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 5;
-            }
-            if (originString.Substring(0, 1).Equals("F", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 6;
-            }
-            if (originString.Substring(0, 1).Equals("G", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 7;
-            }
-            if (originString.Substring(0, 1).Equals("H", StringComparison.InvariantCultureIgnoreCase))
-            {
-                originX = 8;
-            }
-
-            if (destinationString.Substring(0, 1).Equals("A", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 1;
-            }
-            if (destinationString.Substring(0, 1).Equals("B", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 2;
-            }
-            if (destinationString.Substring(0, 1).Equals("C", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 3;
-            }
-            if (destinationString.Substring(0, 1).Equals("D", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 4;
-            }
-            if (destinationString.Substring(0, 1).Equals("E", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 5;
-            }
-            if (destinationString.Substring(0, 1).Equals("F", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 6;
-            }
-            if (destinationString.Substring(0, 1).Equals("G", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 7;
-            }
-            if (destinationString.Substring(0, 1).Equals("H", StringComparison.InvariantCultureIgnoreCase))
-            {
-                destinationX = 8;
-            }
+            int originX = getCorrespondingNumber(originString.Substring(0, 1));
+            int originY;
+            int destinationX = getCorrespondingNumber(destinationString.Substring(0, 1)); ;
+            int destinationY;
 
             int.TryParse(destinationString.Substring(1, 1), out destinationY);
             int.TryParse(originString.Substring(1, 1), out originY);
